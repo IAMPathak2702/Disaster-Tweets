@@ -38,7 +38,7 @@ In NLP, RNNs have been widely used due to their ability to capture contextual in
 
 1. Sequential Data Processing: Text data is inherently sequential, as words in a sentence are ordered and often have contextual relationships with nearby words. RNNs are capable of capturing these sequential dependencies, making them useful for tasks like language modeling, where predicting the next word in a sentence depends on the words that came before it.
 
-2. Sentiment Analysis: RNNs can be used for sentiment analysis, a task that involves determining the sentiment or emotion expressed in a piece of text. By processing text sequentially, RNNs can capture the nuanced sentiment in longer text passages.
+2. Sentiment Analysis: RNNs can be used for sentiment analysis, which involves determining the sentiment or emotion expressed in a piece of text. RNNs can capture the nuanced sentiment in longer text passages by processing text sequentially.
 
 3. Language Generation: RNNs are also employed for text generation tasks, such as generating coherent sentences or paragraphs of text. By conditioning the generation process on previous words, RNNs can produce text that flows naturally and makes sense.
 
@@ -49,6 +49,6 @@ In NLP, RNNs have been widely used due to their ability to capture contextual in
 6. Text Classification: RNNs, particularly Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) variants, can be used for text classification tasks, such as sentiment analysis and topic categorization.
 
 5. **Prediction:**
-   - Once the model is trained and evaluated, use it to predict the classes of new, unseen text data.
+   - Once the model is trained and evaluated, use it to predict new, unseen text data classes.
 
 Text classification is a fundamental task in NLP with numerous real-world applications, ranging from spam detection and sentiment analysis to topic categorization and intent recognition in chatbots. The success of text classification largely depends on the quality of the training data, the choice of features, and the model architecture.
