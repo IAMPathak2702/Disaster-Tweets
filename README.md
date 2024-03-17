@@ -1,57 +1,58 @@
-# NLP - Natural Language Processing
-NLP is a field of artificial intelligence that focuses on the interaction between computers and humans through natural language. It encompasses a wide range of tasks and techniques that enable computers to understand, interpret, and generate human language. NLP has numerous applications, ***including machine translation, sentiment analysis, chatbots, information retrieval, text summarization, and more.***
+# Disaster Tweets - NLP Project
 
-One important aspect of NLP is ***text classification***, which involves categorizing text documents or sentences into predefined categories or classes. Text classification is a supervised learning task, meaning that it requires labeled training data where each text example is associated with a specific class. The goal is to train a machine learning model that can generalize from the training data to correctly classify new, unseen text instances.
+This project aims to classify tweets as either related to real disasters or not using Natural Language Processing (NLP) techniques. The dataset used for training and evaluation contains tweets collected during natural disasters.
 
-Here are the general steps involved in text classification using NLP:
 
-1. **Data Collection and Preprocessing:**
-   - Gather a dataset containing text documents along with their corresponding labels (categories/classes).
-   - Preprocess the text by removing irrelevant information (like punctuation, special characters, and numbers) and converting all text to lowercase.
-   - Tokenize the text by splitting it into individual words or subword units (e.g., using techniques like word tokenization or subword tokenization).
+## Introduction
 
-2. **Feature Extraction:**
-   - Convert the text data into a numerical format that machine learning algorithms can work with.
-   - Common techniques for feature extraction include:
-     - Bag-of-Words: Represent each document as a vector where each dimension corresponds to a unique word, and the value represents the word's frequency in the document.
-     - TF-IDF (Term Frequency-Inverse Document Frequency): A numerical representation that takes into account the frequency of a word in a document as well as its importance in the entire corpus.
-     - Word Embeddings: Dense vector representations that capture semantic relationships between words based on their usage in a large text corpus (e.g., Word2Vec, GloVe, etc.).
+Twitter is an essential platform for real-time information sharing, including updates during natural disasters. However, amidst a flurry of tweets, it's crucial to identify which ones are reporting actual incidents. This project leverages NLP techniques to classify tweets into two categories: those related to real disasters and those that are not.
 
-3. **Model Selection and Training:**
-   - Choose a suitable machine learning algorithm for text classification, such as:
-     - Naive Bayes
-     - Support Vector Machines
-     - Decision Trees
-     - Random Forests
-     - Neural Networks (e.g., Convolutional Neural Networks, Recurrent Neural Networks)
-   - Split the dataset into training and validation sets.
-   - Train the chosen model using the training data and tune its hyperparameters for optimal performance.
+## Dataset
 
-4. **Evaluation:**
-   - Evaluate the trained model's performance on the validation set using appropriate evaluation metrics (e.g., accuracy, precision, recall, F1-score).
-   - Adjust the model and hyperparameters as needed to improve performance.
-   ## NLP and RNN
+The dataset used in this project consists of tweets labeled as either disaster-related or not. It includes text data along with corresponding labels. The dataset is split into training, validation, and test sets for model training, tuning, and evaluation.
 
-**Recurrent Neural Networks** : RNNs are a class of artificial neural networks designed to work with sequences of data. Unlike traditional feedforward neural networks that process fixed-size inputs, RNNs can handle sequences of varying lengths. They maintain an internal hidden state that captures information from previous steps in the sequence and uses it to influence the processing of the current step. This makes RNNs well-suited for tasks involving sequences, such as natural language processing.
+To tabulate the provided data, you can organize it into a structured table format with columns for "text" and "target". Here's how you can tabulate the data:
 
-In NLP, RNNs have been widely used due to their ability to capture contextual information and sequential dependencies in text data. Here's how RNNs are relevant in NLP:
+| text                                                             | target |
+|------------------------------------------------------------------|--------|
+| Our Deeds are the Reason of this #earthquake May ALLAH Forgive us all | 1      |
+| Forest fire near La Ronge Sask. Canada                            | 1      |
+| All residents asked to 'shelter in place' are being notified by officers. No other evacuation or shelter in place orders are expected | 1      |
+| "13,000 people receive #wildfires evacuation orders in California " | 1      |
+| Just got sent this photo from Ruby #Alaska as smoke from #wildfires pours into a school | 1      |
+| #RockyFire Update => California Hwy. 20 closed in both directions due to Lake County fire - #CAfire #wildfires | 1      |
+| "#flood #disaster Heavy rain causes flash flooding of streets in Manitou, Colorado Springs areas" | 1      |
+| I'm on top of the hill and I can see a fire in the woods...       | 1      |
 
-1. Sequential Data Processing: Text data is inherently sequential, as words in a sentence are ordered and often have contextual relationships with nearby words. RNNs are capable of capturing these sequential dependencies, making them useful for tasks like language modeling, where predicting the next word in a sentence depends on the words that came before it.
+Each row represents a tweet with its corresponding target value. In this dataset, the "target" column indicates whether the tweet is related to a disaster (target = 1) or not (target = 0).
 
-2. Sentiment Analysis: RNNs can be used for sentiment analysis, which involves determining the sentiment or emotion expressed in a piece of text. RNNs can capture the nuanced sentiment in longer text passages by processing text sequentially.
+## Dependencies
 
-3. Language Generation: RNNs are also employed for text generation tasks, such as generating coherent sentences or paragraphs of text. By conditioning the generation process on previous words, RNNs can produce text that flows naturally and makes sense.
+- Python (>=3.6)
+- TensorFlow (>=2.0)
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-learn
 
-4. Machine Translation: RNNs have been used in machine translation models to translate text from one language to another. These models process input sentences sequentially, converting them into meaningful translations.
 
-5. Named Entity Recognition: RNNs can be applied to named entity recognition tasks, where the goal is to identify and classify entities like names of people, places, organizations, etc., in a text.
 
-6. Text Classification: RNNs, particularly Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) variants, can be used for text classification tasks, such as sentiment analysis and topic categorization.
 
-5. **Prediction:**
-   - Once the model is trained and evaluated, use it to predict new, unseen text data classes.
+## Model Architecture
 
-Text classification is a fundamental task in NLP with numerous real-world applications, ranging from spam detection and sentiment analysis to topic categorization and intent recognition in chatbots. The success of text classification largely depends on the quality of the training data, the choice of features, and the model architecture.
+The model architecture consists of a pre-trained word embedding layer followed by one or more recurrent neural network (RNN) layers such as LSTM or GRU. These layers are followed by fully connected layers with dropout for classification.
+
+## Results
+
+
+
+| Date                     | Mean Absolute Error | Mean Squared Error | Root Mean Squared Error | Accuracy | Loss   | Validation Mean Absolute Error | Validation Mean Squared Error | Validation Root Mean Squared Error | Validation Accuracy | Validation Loss |
+|--------------------------|---------------------|---------------------|-------------------------|----------|--------|--------------------------------|--------------------------------|------------------------------------|----------------------|-----------------|
+| 2024-03-17 02:30:18      | 0.3799              | 0.1852              | 0.4304                  | 0.7170   | 0.5459 | 0.2864                         | 0.1459                         | 0.3819                             | 0.7913               | 0.4508          |
+| 2024-03-17 02:45:18      | 0.1914              | 0.0919              | 0.3032                  | 0.8803   | 0.3066 | 0.2531                         | 0.1525                         | 0.3905                             | 0.7900               | 0.4843          |
+| 2024-03-17 03:00:18      | 0.0996              | 0.0452              | 0.2127                  | 0.9464   | 0.1690 | 0.2510                         | 0.1629                         | 0.4036                             | 0.7782               | 0.5453          |
+
+
 
 
 ![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/dag_details.png)
