@@ -54,7 +54,7 @@ In NLP, RNNs have been widely used due to their ability to capture contextual in
 Text classification is a fundamental task in NLP with numerous real-world applications, ranging from spam detection and sentiment analysis to topic categorization and intent recognition in chatbots. The success of text classification largely depends on the quality of the training data, the choice of features, and the model architecture.
 
 
-![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/Screenshot%202024-03-17%20170047.png)
-![airflow_screenshot](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/Screenshot%202024-03-17%20171455.png)
-![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/Screenshot%202024-03-17%20171256.png)
+![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/dag_details.png)
+![airflow_screenshot](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/dag_list.png)
+![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/graph_view.png)
 
