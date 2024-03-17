@@ -55,6 +55,6 @@ Text classification is a fundamental task in NLP with numerous real-world applic
 
 
 ![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/Screenshot%202024-03-17%20170047.png)
-![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/blob/main/airflow/pictures/Screenshot%202024-03-17%20171455.png)
-![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/blob/main/airflow/pictures/Screenshot%202024-03-17%20171256.png)
+![airflow_screenshot](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/Screenshot%202024-03-17%20171455.png)
+![airflow](https://raw.githubusercontent.com/IAMPathak2702/Disaster-Tweets---NLP-project/main/airflow/pictures/Screenshot%202024-03-17%20171256.png)
 
