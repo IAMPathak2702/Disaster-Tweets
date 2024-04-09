@@ -1,9 +1,19 @@
+import sys
+sys.path.append("C:\\Users\\vpved\\Documents\\GitHub\\Disaster-Tweets---NLP-project\\Disaster_Sentiment_Analysis\\src")
+from DisasterSentimentalPrediction import config
+
+import os
+
+# Set TF_ENABLE_ONEDNN_OPTS environment variable to 0
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
+
 import logging
 import tensorflow as tf
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.config import config
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.processing.data_handeling import save_pipeline,load_dataset,load_pipeline
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.pipeline import create_model
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.trained_models.preprocessing import FeatureEngineering , ModelCallbacks
+from DisasterSentimentalPrediction.config import config
+from DisasterSentimentalPrediction.processing.data_handeling import save_pipeline,load_dataset,load_pipeline
+from DisasterSentimentalPrediction.pipeline import create_model
+from DisasterSentimentalPrediction.processing.preprocessing import ModelCallbacks, df_to_tfdataset
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)  # Set logging level to INFO
@@ -13,9 +23,10 @@ def perform_training():
     train_dataset = load_dataset(config.TRAIN_FILE)  
     test_dataset = load_dataset(config.TEST_FILE)  
     
+    
     # Drop unnecessary features (if any)
-    train_dataset = FeatureEngineering.drop(train_dataset)
-    test_dataset = FeatureEngineering.drop(test_dataset)
+    train_dataset = df_to_tfdataset(dataframe=train_dataset)
+    test_dataset = df_to_tfdataset(dataframe=test_dataset)
     
     # Create model
     model = create_model()
@@ -25,7 +36,7 @@ def perform_training():
     
     # Define callbacks
     callbacks = ModelCallbacks()
-    checkpoint_callback = callbacks.create_model_checkpoint(filepath=config.SAVE_MODEL_PATH)
+    checkpoint_callback = callbacks.create_model_checkpoint(dataframe=config.SAVE_MODEL_PATH)
     early_stopping_callback = callbacks.early_stopping()
     
     # Train the model

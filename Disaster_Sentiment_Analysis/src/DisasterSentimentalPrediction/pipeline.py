@@ -1,8 +1,8 @@
 import tensorflow as tf
 import keras
 from keras.layers import Dense, Flatten
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.config import config
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.trained_models.preprocessing import FeatureEngineering 
+from DisasterSentimentalPrediction.config import config
+from DisasterSentimentalPrediction.processing.preprocessing import df_to_tfdataset
 
 #  Example of pretrained embedding with universal sentence encoder - https://tfhub.dev/google/universal-sentence-encoder/4
 import tensorflow_hub as hub

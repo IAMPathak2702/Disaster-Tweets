@@ -1,8 +1,8 @@
 import tensorflow as tf
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.config import config
+from DisasterSentimentalPrediction.config import config
 import pandas as pd
 import numpy as np
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.processing.data_handeling import load_pipeline
+from DisasterSentimentalPrediction.processing.data_handeling import load_pipeline
 
 
 classification_pipeline = load_pipeline(config.MODEL_NAME)

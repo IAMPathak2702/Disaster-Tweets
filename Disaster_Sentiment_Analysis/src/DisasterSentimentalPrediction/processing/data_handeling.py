@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 import tensorflow as tf 
 
-from Disaster_Sentiment_Analysis.src.DisasterSentimentalPrediction.config import config
+from DisasterSentimentalPrediction.config import config
 
 def load_dataset(filename):
     filepath = os.path.join(config.DATAPATH, filename)
