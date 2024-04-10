@@ -3,12 +3,13 @@ import pandas as pd
 import joblib
 import tensorflow as tf 
 
+
 from DisasterSentimentalPrediction.config import config
 
 def load_dataset(filename):
-    filepath = os.path.join(config.DATAPATH, filename)
-    _data = pd.read_csv(filename)
+    _data = pd.read_csv(filename,encoding="utf-8")
     _data = _data.drop(config.COLUMNS_TO_DROP, axis=1)
+    _data = _data.drop_duplicates()
     return _data
 
 

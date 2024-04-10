@@ -2,14 +2,15 @@ import tensorflow as tf
 from DisasterSentimentalPrediction.config import config
 import pandas as pd
 import numpy as np
-from DisasterSentimentalPrediction.processing.data_handeling import load_pipeline
+from DisasterSentimentalPrediction.processing.data_handeling import load_pipeline , load_dataset
 
 
-classification_pipeline = load_pipeline(config.MODEL_NAME)
+model = tf.keras.model.load_model(config.SAVE_MODEL_PATH)
 
 def generate_predictions(data_input):
-    data = pd.DataFrame(data_input)
-    pred = classification_pipeline.predict(data[config.FEATURES_TO_PREDICT])
+    data = data_input.copy()
+    data = load_dataset(data)
+    pred = model.predict(data)
     output = np.where(pred==1,'Disaster','Not A Disaster')
     result = {"prediction":output}
     return result

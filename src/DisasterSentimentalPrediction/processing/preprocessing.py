@@ -1,9 +1,9 @@
 import pandas as pd
 import tensorflow as tf
-from DisasterSentimentalPrediction.config import config  # Assuming config is a module containing COLUMNS_TO_DROP
+from DisasterSentimentalPrediction.config import config  
 
 
-def df_to_tfdataset(self,dataframe):
+def df_to_tfdataset(dataframe):
     """
     Perform feature engineering by dropping specified columns from the dataset.
 
@@ -13,14 +13,16 @@ def df_to_tfdataset(self,dataframe):
     # Load the data from CSV
     
     # Drop specified columns
-    _data = dataframe.drop(self.columns, axis=1)
+    # _data = dataframe.drop(columns=config.COLUMNS_TO_DROP, axis=1)
     
     # Remove duplicate rows
-    _data = _data.drop_duplicates()
-    
+    _data = dataframe.copy()
+  
+    _data = dataframe.drop_duplicates()
+   
     # Separate target and text columns
-    target = _data.pop("target")
-    text = _data.pop("text")
+    target = _data[config.TARGET]
+    text = _data[config.FEATURES_TO_PREDICT]
     
     dataset = tf.data.Dataset.from_tensor_slices((text, target)).batch(32).prefetch(tf.data.AUTOTUNE)
 
@@ -47,14 +49,21 @@ class ModelCallbacks:
         
 
         # Create the ModelCheckpoint callback
+        import tensorflow as tf
+
+        # Define the file path to save the best model weights
+        checkpoint_filepath = config.SAVE_MODEL_PATH
+
+    # Define the ModelCheckpoint callback
         model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
-            dataframe=dataframe,
+            filepath=checkpoint_filepath,
             monitor='val_accuracy',
             save_best_only=True,
             save_weights_only=False,
             mode='max',
             verbose=0
         )
+
         return model_checkpoint_callback
     
     @staticmethod
