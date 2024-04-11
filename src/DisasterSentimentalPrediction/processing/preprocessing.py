@@ -18,7 +18,7 @@ def df_to_tfdataset(dataframe):
     # Remove duplicate rows
     _data = dataframe.copy()
   
-    _data = dataframe.drop_duplicates()
+    
    
     # Separate target and text columns
     target = _data[config.TARGET]
@@ -32,7 +32,7 @@ def df_to_tfdataset(dataframe):
 
 class ModelCallbacks:
     @staticmethod
-    def create_model_checkpoint(dataframe):
+    def create_model_checkpoint():
         """
         Create a ModelCheckpoint callback.
 
@@ -42,14 +42,6 @@ class ModelCallbacks:
         Returns:
             tf.keras.callbacks.ModelCheckpoint: ModelCheckpoint callback object.
         """
-        # Define the directory where you want to save the model
-        
-
-        # Create a timestamp string using the current datetime
-        
-
-        # Create the ModelCheckpoint callback
-        import tensorflow as tf
 
         # Define the file path to save the best model weights
         checkpoint_filepath = config.SAVE_MODEL_PATH
@@ -75,7 +67,7 @@ class ModelCallbacks:
             tf.keras.callbacks.EarlyStopping: EarlyStopping callback object.
         """
         early_stopping_callback = tf.keras.callbacks.EarlyStopping(
-            monitor='val_loss',
+            monitor='val_accuracy',
             patience=3,
             restore_best_weights=True
         )
