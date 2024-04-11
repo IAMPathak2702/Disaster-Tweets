@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 
 # Metadata of package
-NAME = 'prediction_model'
+NAME = 'Disaster_tweet_prediction'
 DESCRIPTION = 'Tweet Sentimental Analysis weather Tweet reprensent A Happening of Natural Disaster'
 URL = 'https://github.com/IAMPathak2702'
 EMAIL = 'vp.ved.vpp@gmail.com'
@@ -29,7 +29,7 @@ except FileNotFoundError:
 
 # Load the package's __version__.py module as a dictionary.
 ROOT_DIR = Path(__file__).resolve().parent
-PACKAGE_DIR = ROOT_DIR / NAME
+PACKAGE_DIR = ROOT_DIR 
 about = {}
 with open(PACKAGE_DIR / 'VERSION') as f:
     _version = f.read().strip()
