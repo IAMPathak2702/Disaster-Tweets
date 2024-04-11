@@ -9,7 +9,7 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import logging
 import tensorflow as tf
 from DisasterSentimentalPrediction.config import config
-from DisasterSentimentalPrediction.processing.data_handeling import save_pipeline, load_dataset, load_pipeline
+from DisasterSentimentalPrediction.processing.data_handeling import load_dataset
 from DisasterSentimentalPrediction.pipeline import create_model
 from DisasterSentimentalPrediction.processing.preprocessing import ModelCallbacks
 
