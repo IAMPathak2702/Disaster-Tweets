@@ -3,13 +3,20 @@ import pandas as pd
 import joblib
 import tensorflow as tf 
 
+
 from DisasterSentimentalPrediction.config import config
 
+import pandas as pd
+
+import pandas as pd
+
 def load_dataset(filename):
-    filepath = os.path.join(config.DATAPATH, filename)
-    _data = pd.read_csv(filename)
-    _data = _data.drop(config.COLUMNS_TO_DROP, axis=1)
-    return _data
+    data = pd.read_csv(filename)
+    label = data["target"]
+    feature=data["text"]
+    return (feature,label)
+
+
 
 
 def save_pipeline(pipeline_to_save):
@@ -21,7 +28,7 @@ def save_pipeline(pipeline_to_save):
         print(f"Error saving pipeline from {save_path}: {e}")
         return None
 
-# deserialize the model
+# dataerialize the model
 def load_pipeline(model_name):
     try: 
         save_path = os.path.join(config.SAVE_MODEL_PATH,config.MODEL_NAME)
